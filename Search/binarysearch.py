@@ -6,9 +6,9 @@ def iterative(array, target):
             return True
         else:
             if array[middle] > target:
-                left = middle+1
-            else:
                 right = middle-1
+            else:
+                left = middle+1
     return False
 
 # Recursive implementation
@@ -27,5 +27,5 @@ def recursive(array, target):
 
 def main():
     arr = [1,2,4,10,122]
-    print(iterative(arr,4))
+    print(recursive(arr,10))
 main()
