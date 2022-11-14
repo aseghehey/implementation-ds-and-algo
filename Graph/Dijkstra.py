@@ -6,7 +6,14 @@ def clean(arr):
     adjlist = defaultdict(list)
     for src, to, w in arr:
         adjlist[src].append([to,w])
+    printgraph(adjlist)
     return adjlist
+
+def printgraph(graph):
+    print('graph:')
+    for k, v in graph.items():
+        print(f"vertex {k}: {v}")
+
 
 def dijkstra(graph, src, dst, n):
     dist = {i: float('inf') for i in range(1, n + 1)}
@@ -20,13 +27,16 @@ def dijkstra(graph, src, dst, n):
         
         if cur in visited:
             continue
-
+        
         visited.add(cur)
         dist[cur] = min(dist[cur], cst)
 
         for neighbor, cost in graph[cur]:
             if neighbor not in visited:
                 heapq.heappush(pqueue, [neighbor, cost + cst])
+
+        print(f"\nat {cur}, with {cst}, dist: {dist}, pq: {pqueue}")
+
     print(dist)
     return dist[dst]
 
