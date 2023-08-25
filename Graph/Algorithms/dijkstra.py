@@ -1,6 +1,6 @@
 import heapq
 from collections import defaultdict
-arr = [[3,5,78],[2,1,1],[1,3,0],[4,3,59],[5,3,85],[5,2,22],[2,4,23],[1,4,43],[4,5,75],[5,1,15],[1,5,91],[4,1,16],[3,2,98],[3,4,22],[5,4,31],[1,2,0],[2,5,4],[4,2,51],[3,1,36],[2,3,59]]
+arr = [[3,5,78],[2,1,1],[1,3,0],[4,3,59],[5,3,85],[5,2,22],[2,4,23],[1,4,43],[4,5,75],[1,5,91],[4,1,16],[3,2,98],[3,4,22],[5,4,31],[1,2,0],[2,5,4],[4,2,51],[3,1,36],[2,3,59]]
 
 def clean(arr):
     adjlist = defaultdict(list)
@@ -13,7 +13,6 @@ def printgraph(graph):
     print('graph:')
     for k, v in graph.items():
         print(f"vertex {k}: {v}")
-
 
 def dijkstra(graph, src, dst, n):
     dist = {i: float('inf') for i in range(1, n + 1)}
@@ -40,4 +39,4 @@ def dijkstra(graph, src, dst, n):
     print(dist)
     return dist[dst]
 
-print(dijkstra(clean(arr), 5, 4, 5))
+print(dijkstra(clean(arr), 5, 1, 5))
